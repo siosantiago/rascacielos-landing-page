@@ -1,52 +1,67 @@
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
+import Nav from './components/Nav';
 
+function HeroLeft() {
+  const containerStyle: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: '2rem' };
+  const headingStyle: React.CSSProperties = {
+    fontSize: '3rem',
+    lineHeight: 1.05,
+    fontWeight: 700,
+    color: '#0f172a',
+    margin: 0,
+  };
+  const paragraphStyle: React.CSSProperties = { fontSize: '1.125rem', color: '#4b5563', margin: 0 };
+  const buttonStyle: React.CSSProperties = {
+    backgroundColor: '#0f172a',
+    color: '#fff',
+    padding: '0.75rem 2rem',
+    borderRadius: 9999,
+    display: 'inline-flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    border: 'none',
+    cursor: 'pointer',
+    fontWeight: 600,
+  };
 
+  return (
+    <div style={containerStyle}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <h1 style={headingStyle}>Make your security deposit work for you</h1>
+        <p style={paragraphStyle}>From the day you move in, your money will grow with you</p>
+      </div>
+
+      <button style={buttonStyle}>
+        Learn More
+        <ArrowRight size={18} />
+      </button>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-app-background text-app-foreground">
       {/* Navigation */}
-      <nav className="flex items-center justify-between px-8 py-6 max-w-7xl mx-auto">
-        <div className="text-2xl font-bold text-stone-900">RASCACIELOS</div>
-        <div className="hidden md:flex gap-8 text-sm font-medium text-stone-700">
-          <button className="hover:text-stone-900 transition">LEARN MORE</button>
-          <button className="hover:text-stone-900 transition">ABOUT US</button>
-          <button className="hover:text-stone-900 transition">CONTACT US</button>
-          <button className="hover:text-stone-900 transition">JOIN WAITLIST</button>
-        </div>
-      </nav>
+      <Nav />
 
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-8 py-20 grid md:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="space-y-8">
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-6xl font-bold text-stone-900 leading-tight">
-              Make your security deposit work for you
-            </h1>
-            <p className="text-lg text-stone-600">
-              From the day you move in, your money will grow with you
-            </p>
-          </div>
-          
-          <button className="bg-stone-900 text-white px-8 py-3 rounded-full font-medium hover:bg-stone-800 transition inline-flex items-center gap-2">
-            Learn More
-            <ArrowRight size={18} />
-          </button>
-        </div>
+        <HeroLeft />
 
         {/* Right Chart Visualization */}
-      <div className="flex items-center justify-center">
-        <Image
+        <div className="flex items-center justify-center">
+          <Image
             src="/assets/Growing-chart-skyline.png"
-                alt="Growing chart skyline"
-                className="w-full max-w-md"
-                width={400} // adjust as needed
-                height={300} // adjust as needed
-                priority
-        />
-      </div>
+            alt="Growing chart skyline"
+            className="w-full max-w-md"
+            width={400}
+            height={300}
+            priority
+          />
+        </div>
       </div>
 
       {/* Features Section */}
