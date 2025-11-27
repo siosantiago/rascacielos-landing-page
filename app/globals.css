@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #FCF9EA;
   --foreground: #171717;
 }
 
@@ -14,13 +14,51 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #171717;
     --foreground: #ededed;
   }
 }
 
+
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Use Raleway as the default font with a thin base weight for general text */
+  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+/* Preserve bold appearance for semantic/bold elements and headings */
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
+  font-weight: 700;
+}
+
+@layer components {
+  .bg-app-background {
+    @apply bg-[#FCF9EA];
+  }
+  .text-app-foreground {
+    @apply text-[#171717];
+  }
+
+  /* Raleway utility classes: create unique class names with the weight you need */
+  /* Example usages:
+     - `className="raleway-400"` for normal text
+     - `className="raleway-700"` for bold
+  */
+  .raleway-100 { font-family: 'Raleway', sans-serif; font-optical-sizing: auto; font-weight: 100; font-style: normal; }
+  .raleway-300 { font-family: 'Raleway', sans-serif; font-optical-sizing: auto; font-weight: 300; font-style: normal; }
+  .raleway-400 { font-family: 'Raleway', sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal; }
+  .raleway-600 { font-family: 'Raleway', sans-serif; font-optical-sizing: auto; font-weight: 600; font-style: normal; }
+  .raleway-700 { font-family: 'Raleway', sans-serif; font-optical-sizing: auto; font-weight: 700; font-style: normal; }
+  .raleway-900 { font-family: 'Raleway', sans-serif; font-optical-sizing: auto; font-weight: 900; font-style: normal; }
 }
